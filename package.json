@@ -1,0 +1,34 @@
+{
+  "name": "es-teel",
+  "version": "0.0.1",
+  "description": "",
+  "types": "lib/index.ts",
+  "exports": {
+    "import": "./lib/index.ts",
+    "require": "./cjs/index.js"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "bike lib/index_test.ts example/index.js",
+    "dev": "bike lib/index.ts",
+    "esm": "esbuild --define:process.env.NODE_ENV=\\\"production\\\" lib/index.ts --outdir=esm --target=es6  --bundle --external:react --format=esm --minify --splitting",
+    "cjs": "esbuild --define:process.env.NODE_ENV=\\\"production\\\" lib/index.ts --outdir=cjs --target=es6  --bundle --external:react --format=cjs --minify",
+    "build": "yarn cjs & yarn esm"
+  },
+  "keywords": [],
+  "author": "wangkris03",
+  "license": "MIT",
+  "devDependencies": {
+    "bike": "^1.0.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wangkris03/es-teel.git"
+  },
+  "bugs": {
+    "url": "git+https://github.com/wangkris03/es-teel.git"
+  },
+  "homepage": "git+https://github.com/wangkris03/es-teel.git"
+}
